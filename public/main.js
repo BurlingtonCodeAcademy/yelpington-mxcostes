@@ -7,7 +7,7 @@ let restaurants = document.getElementById('shops')
 
 // map import 
 //gives map and starts at set coordinates and zoom
-let mymap = L.map('myMap').setView([44.815, -73.012], 12)
+let mymap = L.map('myMap').setView([44.47655925,-73.21435285244789], 16)
 //specifies the tiles you want to be shown. Theme.
 var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
     maxZoom: 50,
@@ -71,7 +71,56 @@ return restaurantList
         }
         addListToBody()
         });
-    // ---------------------------------- End of homepage list creation ------------------------
 
-    //-----------------------Dropping pins for all the resturants 
+    //-----------------------Dropping pins for all the resturants and also their basic info -------------------
+    function getLatLong(address, myInfo) {
+
+        let latLon = {}
+        fetch(`https://nominatim.openstreetmap.org/search/?q=${address}&format=json`)
+            .then((data) => {
+                return data.json()
+            })
+            .then((locInfo) => {
+                console.log(locInfo[0])
+                let info = locInfo[0]
+                let lat = info.lat
+                let lon = info.lon
+                console.log(lat)
+                console.log(lon)
+                latLon.lat = lat
+                latLon.lon = lon
+                L.marker([lat, lon]).addTo(mymap).bindPopup(myInfo)
+            })
+    
+    } 
+    // example or ^ working
+   getLatLong('149 S Champlain St. Burlington, VT 05401')
+    // assigning addresses and apssing through getLatLong funciton
+   function placemarkers() {
+    window.fetch('https://json-server.burlingtoncodeacademy.now.sh/restaurants')
+    .then(response => response.json()) /* get date */
+    .then(json => {
+        function makeMarker(){
+        // for every shop in the JSON 
+        // make a marker
+                const posts = json.map((postData)=> {
+                 const mark = getLatLong(postData.address)
+                 return mark
+                })
+                 return posts 
+            }
+            const posts = makeMarker();
+    function addAdressToFunction(){
+        // add each ost listitem to the parent ol
+                posts.forEach((address) => {
+                    getLatLong(address)  
+        
+    
+            });
+        } addAdressToFunction()
+    })}
+    
+           placemarkers()
+
+    // -----------------------Make list items links to their respecitive pages--------------
 

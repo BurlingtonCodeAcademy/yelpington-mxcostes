@@ -5,4 +5,8 @@ const path = require('path')
 
 app.use(express.static('public'))
 
-app.listen(port, ()=> console.log(`example listening on port ${port}!`))
+app.get('/shop/:id', (req, res) => {
+    res.sendFile(path.resolve('./public/featured.html'))
+})
+
+app.listen(port, ()=> console.log(`listening on port ${port}!`))

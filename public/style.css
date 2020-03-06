@@ -36,6 +36,9 @@ body {
     border-radius: 5%;
 
 }
+a {
+	color: white;
+}
 
 li {
 	padding-bottom: .5rem;

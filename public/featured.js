@@ -6,7 +6,14 @@ console.log(id)
 //  funcitoning variables
 let title = document.getElementById('featured')
 title.textContent = id
-
+let send = document.getElementById('send')
+// commenting variables
+let input = document.getElementsByClassName('input-name')
+let inputValue = input.value
+let email = document.getElementsByClassName('input-email')
+let emailValue = email.value
+let comment = document.getElementById('comment-area')
+let commentValue = comment.value
 
 // -----------enter name notes number address hours into sidebar-----
 window.fetch('https://json-server.burlingtoncodeacademy.now.sh/restaurants/' + id)
@@ -54,3 +61,49 @@ let latLon = {}
   }
   
 //   ----------------------commenting ------------------------------
+send.addEventListener('click', ()=>{
+    console.log('button clikced')
+function findElement() {
+    const target = document.getElementById('commentDiv')
+    return target
+}
+const target = findElement()
+
+function createParent() {
+    const commentInfo = document.createElement('div')
+    return commentInfo
+}
+const commentInfo = createParent()
+function makeEntry() {
+    const commenter = document.createElement('p')
+    const emailAddress = document.createElement('p')
+    const commentInput = document.createElement('p')
+    let commenterText = commenter.textContent
+    commenterText =  inputValue
+    emailText =  emailAddress.textContent
+    emailText = emailValue
+    commentText = commentInput
+    commentText= commentValue
+    let entry = `${commenterText} \n ${emailText} \n ${commentText}`
+    console.log(entry)
+    addChildrenToParent() 
+    
+    function addChildrenToParent() {
+        commentInfo.appendChild(entry)
+        console.log(entry)
+        function addInfoToTarget () {
+            target.appendChild(commentInfo)
+            return undefined
+        
+        }}
+        
+        addInfoToTarget()
+        
+        
+}
+makeEntry()
+
+
+
+
+});

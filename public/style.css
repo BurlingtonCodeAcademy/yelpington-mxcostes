@@ -43,6 +43,27 @@ a {
 li {
 	padding-bottom: .5rem;
 }
+
+#name{
+	text-align: center;
+	text-decoration: underline;
+}
+
+#notes {
+	padding-left: 1rem;
+}
+
+#number {
+	padding-left: 1rem;
+}
+
+#address {
+	padding-left: 1rem;
+}
+
+#hours {
+	padding-left: 1rem;
+}
 /*-----------------------------Map ---------------------------------- */
 
 #myMap {

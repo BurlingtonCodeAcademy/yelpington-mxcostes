@@ -54,56 +54,73 @@ let latLon = {}
         maxZoom: 50,
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
     }).addTo(mymap)
-    L.marker([lat, lon]).addTo(mymap).bindPopup(name)
+    L.marker([lat, lon]).addTo(mymap).bindPopup(name).openPopup()
     
 })
 
   }
   
 //   ----------------------commenting ------------------------------
-send.addEventListener('click', ()=>{
-    console.log('button clikced')
-function findElement() {
-    const target = document.getElementById('commentDiv')
-    return target
-}
-const target = findElement()
 
-function createParent() {
-    const commentInfo = document.createElement('div')
-    return commentInfo
-}
-const commentInfo = createParent()
-function makeEntry() {
-    const commenter = document.createElement('p')
-    const emailAddress = document.createElement('p')
-    const commentInput = document.createElement('p')
-    let commenterText = commenter.textContent
-    commenterText =  inputValue
-    emailText =  emailAddress.textContent
-    emailText = emailValue
-    commentText = commentInput
-    commentText= commentValue
-    let entry = `${commenterText} \n ${emailText} \n ${commentText}`
-    console.log(entry)
-    addChildrenToParent() 
+// let comment = {}
+
+// for(let i=0; i < comment.length; i++ ){
+
+// }
+
+
+
+
+
+
+
+
+
+// send.addEventListener('click', ()=>{
+//     console.log('button clikced')
+// function findElement() {
+//     const target = document.getElementById('commentDiv')
+//     return target
+// }
+// const target = findElement()
+
+// function createParent() {
+//     const commentInfo = document.createElement('div')
+//     return commentInfo
+// }
+// const commentInfo = createParent()
+// function makeEntry() {
+//     const commenter = document.createElement('p')
+//     const emailAddress = document.createElement('p')
+//     const commentInput = document.createElement('p')
+//     let commenterText = commenter.textContent
+//     commenterText =  inputValue
+//     emailText =  emailAddress.textContent
+//     emailText = emailValue
+//     commentText = commentInput
+//     commentText= commentValue
+//     let entry = `${commenterText} \n ${emailText} \n ${commentText}`
+//     console.log(entry)
+//     addChildrenToParent() 
     
-    function addChildrenToParent() {
-        commentInfo.appendChild(entry)
-        console.log(entry)
-        function addInfoToTarget () {
-            target.appendChild(commentInfo)
-            return undefined
+    
+//     function addChildrenToParent() {
+//         commentInfo.appendChild(entry)
+//         console.log(entry)
+
+//         function addInfoToTarget () {
+//             target.appendChild(commentInfo)
+//             return undefined
         
-        }}
+//         }}
         
-        addInfoToTarget()
+//         addInfoToTarget()
         
         
-}
-makeEntry()
+// }
+// makeEntry()
 
 
 
 
-});
+// });

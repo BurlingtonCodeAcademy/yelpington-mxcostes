@@ -14,6 +14,7 @@ var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{
 
 
 
+
 // Home sidebar including hte names of all restaurants in the file----------------------------
 // Turn thpse names into links to the restaurants featured page
 window.fetch('https://json-server.burlingtoncodeacademy.now.sh/restaurants')
@@ -68,7 +69,7 @@ window.fetch('https://json-server.burlingtoncodeacademy.now.sh/restaurants')
     });
 
 //-----------------------Dropping pins for all the resturants and also their basic info -------------------
-function getLatLong(address, myInfo) {
+function getLatLong(address, myInfo, id) {
 
     let latLon = {}
     fetch(`https://nominatim.openstreetmap.org/search/?q=${address}&format=json`)
@@ -84,23 +85,27 @@ function getLatLong(address, myInfo) {
             console.log(lon)
             latLon.lat = lat
             latLon.lon = lon
-            L.marker([lat, lon]).addTo(mymap).bindPopup(myInfo)
+          let marker = L.marker([lat, lon]).addTo(mymap).bindPopup(myInfo)
+            marker.on('click', function(e) {
+                window.open('/shop/' + id)
+            })
+            
         })
 
 }
-// example or ^ working
-getLatLong('149 S Champlain St. Burlington, VT 05401')
-// assigning addresses and apssing through getLatLong funciton
+
+// assigning addresses and passing through getLatLong funciton
 function placemarkers() {
     window.fetch('https://json-server.burlingtoncodeacademy.now.sh/restaurants')
-        .then(response => response.json()) /* get date */
+        .then(response => response.json()) 
         .then(json => {
             function makeMarker() {
                 // for every shop in the JSON 
                 // make a marker
                 const posts = json.map((postData) => {
                     const myInfo = postData.name
-                    const mark = getLatLong(postData.address, myInfo)
+                    const id = postData.id
+                    const mark = getLatLong(postData.address, myInfo, id)
                     return mark
                 })
                 return posts
@@ -119,5 +124,8 @@ function placemarkers() {
 
 placemarkers()
 
+// -----------------------make markers link------------
 
+
+// ---------------------commenting
 

@@ -86,6 +86,7 @@ function getLatLong(address, myInfo, id) {
             latLon.lat = lat
             latLon.lon = lon
           let marker = L.marker([lat, lon]).addTo(mymap).bindPopup(myInfo)
+        //   add openPopup once we know why it is creating unwatned markers.^^
             marker.on('click', function(e) {
                 window.open('/shop/' + id)
             })

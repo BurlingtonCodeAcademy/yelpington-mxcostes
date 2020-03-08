@@ -8,9 +8,9 @@ let title = document.getElementById('featured')
 title.textContent = id
 let send = document.getElementById('send')
 // commenting variables
-let input = document.getElementsByClassName('input-name')
+let input = document.getElementById('input-name')
 let inputValue = input.value
-let email = document.getElementsByClassName('input-email')
+let email = document.getElementById('input-email')
 let emailValue = email.value
 let comment = document.getElementById('comment-area')
 let commentValue = comment.value
@@ -61,66 +61,30 @@ let latLon = {}
   }
   
 //   ----------------------commenting ------------------------------
-
-// let comment = {}
-
-// for(let i=0; i < comment.length; i++ ){
-
-// }
-
-
-
-
-
-
-
-
-
-// send.addEventListener('click', ()=>{
-//     console.log('button clikced')
-// function findElement() {
-//     const target = document.getElementById('commentDiv')
-//     return target
-// }
-// const target = findElement()
-
-// function createParent() {
-//     const commentInfo = document.createElement('div')
-//     return commentInfo
-// }
-// const commentInfo = createParent()
-// function makeEntry() {
-//     const commenter = document.createElement('p')
-//     const emailAddress = document.createElement('p')
-//     const commentInput = document.createElement('p')
-//     let commenterText = commenter.textContent
-//     commenterText =  inputValue
-//     emailText =  emailAddress.textContent
-//     emailText = emailValue
-//     commentText = commentInput
-//     commentText= commentValue
-//     let entry = `${commenterText} \n ${emailText} \n ${commentText}`
-//     console.log(entry)
-//     addChildrenToParent() 
+send.addEventListener('click', ()=>{
     
-    
-//     function addChildrenToParent() {
-//         commentInfo.appendChild(entry)
-//         console.log(entry)
-
-//         function addInfoToTarget () {
-//             target.appendChild(commentInfo)
-//             return undefined
+        let nameItem = input.value 
+        let emailItem = email.value
+        let commentItem = comment.value
+        console.log(nameItem)
+        let ol = document.getElementById('newCommentName') 
+        let element = document.createElement('p')
+        let element2 = document.createElement('p')
+        let element3 = document.createElement('p')
+        let box = document.createElement('div')
+        let space = document.createElement('hr')
+        element.appendChild(document.createTextNode(nameItem))
+        element2.appendChild(document.createTextNode(emailItem))
+        element3.appendChild(document.createTextNode(commentItem))
+        ol.appendChild(element)
+        ol.appendChild(element2)
+        ol.appendChild(element3)
+        ol.appendChild(space)
+       
+// return inputs to empty
+        input.value = ''
+        email.value = ''
+        comment.value = ''
+})
         
-//         }}
-        
-//         addInfoToTarget()
-        
-        
-// }
-// makeEntry()
 
-
-
-
-// });

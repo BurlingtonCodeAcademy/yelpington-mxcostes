@@ -192,7 +192,7 @@ li:hover {
     justify-content: space-between;
 }
 
-.input-email {
+#input-email {
 	background-color: rgb(244, 244, 244);
 	border: none;
 	border-radius: 2px;
@@ -204,12 +204,12 @@ li:hover {
 	width: 45%;
 }
 
-.input-email:focus {
+#input-email:focus {
 	background-color: white;
 	transition: 0.25s;
 }
 
-.input-name {
+#input-name {
 	background-color: rgb(244, 244, 244);
 	border: none;
 	border-radius: 2px;
@@ -220,7 +220,7 @@ li:hover {
 	width: 45%;
 }
 
-.input-name:focus {
+#input-name:focus {
 	background-color: white;
 	transition: 0.25s;
 }
@@ -256,4 +256,24 @@ li:hover {
 .stackItem {
 	padding: 0.4rem;
 	text-align: left;
+}
+
+/* ------------------------Commenting --------------------------------------*/
+#newComBox {
+display: flex;
+flex-direction: column;
+margin-left: 2rem;
+}
+
+#newCommentName {
+flex-direction: row;
+}
+
+#newCommentEmail {
+	flex-direction: row;
+
+}
+
+#newCommentContext {
+flex-direction: row;
 }

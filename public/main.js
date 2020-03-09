@@ -39,7 +39,7 @@ window.fetch('https://json-server.burlingtoncodeacademy.now.sh/restaurants')
             // for every post in the JSON 
             // make a list item
             const posts = json.map((postData) => {
-                let id = postData.id 
+                let id = postData.id
                 const listItem = document.createElement('li')
                 const link = document.createElement('a')
                 link.setAttribute('href', '/shop/' + id)
@@ -85,20 +85,14 @@ function getLatLong(address, myInfo, id) {
             console.log(lon)
             latLon.lat = lat
             latLon.lon = lon
-          let marker = L.marker([lat, lon]).addTo(mymap).bindPopup(myInfo)
-        //   add openPopup once we know why it is creating unwatned markers.^^
-            marker.on('click', function(e) {
-                window.open('/shop/' + id)
-            })
-            
+            let marker = L.marker([lat, lon]).addTo(mymap).bindPopup(`<a href='/shop/${id}'>${myInfo}</a>`)
         })
-
 }
 
 // assigning addresses and passing through getLatLong funciton
 function placemarkers() {
     window.fetch('https://json-server.burlingtoncodeacademy.now.sh/restaurants')
-        .then(response => response.json()) 
+        .then(response => response.json())
         .then(json => {
             function makeMarker() {
                 // for every shop in the JSON 
